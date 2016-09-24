@@ -337,7 +337,7 @@ function WebpackServiceWorker(params) {
   }
   
   function matchExcludedRequests(url) {
-    return params.some((part) => {
+    return params.excludeRequests.some((part) => {
       return url.includes(part);
     });
   }
