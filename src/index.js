@@ -60,6 +60,7 @@ export default class OfflinePlugin {
     this.externals = this.options.externals;
     this.strategy = this.options.updateStrategy;
     this.relativePaths = this.options.relativePaths;
+    this.excludeRequests = this.options.excludeRequests;
     this.warnings = [];
 
     if (this.options.scope) {
