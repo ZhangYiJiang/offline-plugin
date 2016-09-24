@@ -32,6 +32,7 @@ const defaultOptions = {
   alwaysRevalidate: void 0,
   preferOnline: void 0,
   ignoreSearch: ['**'],
+  excludeRequests: [],
 
   ServiceWorker: {
     output: 'sw.js',

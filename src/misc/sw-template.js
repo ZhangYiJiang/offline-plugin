@@ -244,9 +244,11 @@ function WebpackServiceWorker(params) {
     // Match only GET and known caches, otherwise just ignore request
     if (event.request.method !== 'GET' || allAssets.indexOf(urlString) === -1) {
       if (navigateFallbackURL && isNavigateRequest(event.request)) {
-        event.respondWith(
-          handleNavigateFallback(fetch(event.request))
-        );
+        if (!matchExcludedRequests(urlString)) {
+          event.respondWith(
+            handleNavigateFallback(fetch(event.request))
+          );
+        }
 
         return;
       }
@@ -332,6 +334,12 @@ function WebpackServiceWorker(params) {
 
         return response;
       });
+  }
+  
+  function matchExcludedRequests(url) {
+    return params.some((part) => {
+      return url.includes(part);
+    });
   }
 
   function mapAssets() {

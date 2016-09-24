@@ -129,6 +129,7 @@ export default class ServiceWorker {
         alwaysRevalidate: plugin.alwaysRevalidate,
         preferOnline: plugin.preferOnline,
         ignoreSearch: plugin.ignoreSearch,
+        excludeRequests: plugin.excludeRequests,
       }, null, minify ? void 0 : '  ') };
     `.trim();
   }
